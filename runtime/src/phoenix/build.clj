@@ -42,7 +42,7 @@
 
     (->> (reduce (fn [{:keys [system project] :as acc} component-id]
                    (-> acc
-                       (update :system populate-deps (assoc (get analyzed-config component-id)
+                       (update-in [:system] populate-deps (assoc (get analyzed-config component-id)
                                                        :component-id component-id))
                        (build-component component-id)))
 
